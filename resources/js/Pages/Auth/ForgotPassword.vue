@@ -21,7 +21,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Forgot Password" />
+    <Head title="パスワードを忘れた場合" />
 
     <AuthenticationCard>
         <template #logo>
@@ -38,7 +38,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="email" value="Email" />
+                <InputLabel for="email" value="メールアドレス" />
                 <TextInput
                     id="email"
                     v-model="form.email"
@@ -53,7 +53,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
+                    パスワード再設定のためのメールを送信する
                 </PrimaryButton>
             </div>
         </form>
