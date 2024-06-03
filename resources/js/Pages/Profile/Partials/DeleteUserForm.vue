@@ -40,32 +40,32 @@ const closeModal = () => {
 <template>
     <ActionSection>
         <template #title>
-            Delete Account
+            アカウントを削除する
         </template>
 
         <template #description>
-            Permanently delete your account.
+            アカウントを完全に削除します
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
-                Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.
+              アカウントを削除すると、そのアカウントのすべてのリソースとデータが完全に削除されます。アカウントを削除する前に、保持したいデータや情報をダウンロードしてください。
             </div>
 
             <div class="mt-5">
                 <DangerButton @click="confirmUserDeletion">
-                    Delete Account
+                    アカウントを削除する
                 </DangerButton>
             </div>
 
             <!-- Delete Account Confirmation Modal -->
             <DialogModal :show="confirmingUserDeletion" @close="closeModal">
                 <template #title>
-                    Delete Account
+                  アカウントを削除する
                 </template>
 
                 <template #content>
-                    Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.
+                  本当にアカウントを削除してもよろしいですか? アカウントを削除すると、そのリソースとデータはすべて永久に削除されます。アカウントを永久に削除することを確認するには、パスワードを入力してください。
 
                     <div class="mt-4">
                         <TextInput
@@ -73,7 +73,7 @@ const closeModal = () => {
                             v-model="form.password"
                             type="password"
                             class="mt-1 block w-3/4"
-                            placeholder="Password"
+                            placeholder="パスワード"
                             autocomplete="current-password"
                             @keyup.enter="deleteUser"
                         />
@@ -84,7 +84,7 @@ const closeModal = () => {
 
                 <template #footer>
                     <SecondaryButton @click="closeModal">
-                        Cancel
+                        キャンセル
                     </SecondaryButton>
 
                     <DangerButton
@@ -93,7 +93,7 @@ const closeModal = () => {
                         :disabled="form.processing"
                         @click="deleteUser"
                     >
-                        Delete Account
+                        アカウントを削除する
                     </DangerButton>
                 </template>
             </DialogModal>
