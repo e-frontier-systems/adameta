@@ -7,6 +7,7 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import DarkModeSwitch from "@/Components/DarkModeSwitch.vue";
 
 defineProps({
     title: String,
@@ -29,6 +30,7 @@ const logout = () => {
 
 <template>
     <div>
+
         <Head :title="title" />
 
         <Banner />
@@ -113,7 +115,9 @@ const logout = () => {
                                 </Dropdown>
                             </div>
 
-                            <!-- Settings Dropdown -->
+                          <DarkModeSwitch />
+
+                          <!-- Settings Dropdown -->
                             <div class="ms-3 relative">
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
@@ -135,11 +139,11 @@ const logout = () => {
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            アカウント設定
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Profile
+                                            プロフィール
                                         </DropdownLink>
 
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
@@ -151,7 +155,7 @@ const logout = () => {
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <DropdownLink as="button">
-                                                Log Out
+                                                ログアウト
                                             </DropdownLink>
                                         </form>
                                     </template>
