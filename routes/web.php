@@ -22,3 +22,17 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+/*
+->group(function () {
+    Route::get('/ticker', function () {
+        return Inertia::render('Ticker');
+    })->name('ticker');
+});
+*/
+
+
+Route::get('/ticker', function() {
+    return Inertia::render('Ticker', [
+        'tickers' => \App\Models\Ticker::all(),
+    ]);
+})->name('ticker');
