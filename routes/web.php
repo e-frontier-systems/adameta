@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\MetadataController;
+use App\Http\Controllers\TickerController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+\Illuminate\Auth\Middleware\Authenticate::redirectUsing(function(\Illuminate\Http\Request $request) {
+    $request->session()->flash('status', 'セッションがタイムアウトしました。');
+    return redirect('login');
+});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -22,3 +29,28 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+/*
+->group(function () {
+    Route::get('/ticker', function () {
+        return Inertia::render('Ticker');
+    })->name('ticker');
+});
+*/
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/ticker', [TickerController::class, 'list'])->name('ticker');
+    Route::get('/metadata/get', [MetadataController::class, 'getByTickerId'])->name('get-by-ticker-id');
+    Route::post('/metadata/new', [MetadataController::class, 'update'])->name('ticker-metadata.update');
+    Route::get('/metadata/show', [MetadataController::class, 'show'])->name('metadata.show');
+
+
+});
+
+/*
+Route::get('/ticker', function() {
+    return Inertia::render('Ticker', [
+        'tickers' => \App\Models\Ticker::all(),
+    ]);
+})->name('ticker');
+*/
