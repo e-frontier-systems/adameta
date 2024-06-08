@@ -1,9 +1,10 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
+import withMT from '@material-tailwind/html/utils/withMT.js';
 
 /** @type {import('tailwindcss').Config} */
-export default {
+export default withMT({
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
@@ -23,4 +24,4 @@ export default {
     darkMode: 'selector',
 
     plugins: [forms, typography],
-};
+});
