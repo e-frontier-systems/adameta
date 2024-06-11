@@ -28,7 +28,7 @@ const changeTicker = (ticker) => {
       <div class="p-6 lg:p-8 bg-white dark:bg-gray-800 dark:bg-gradient-to-bl dark:from-gray-700/50 dark:via-transparent border-b border-gray-200 dark:border-gray-700">
 
         <h1 class="text-2xl font-medium text-gray-900 dark:text-white">
-          登録ティッカー名一覧
+          メタデータ
         </h1>
 
         <p class="mt-6 text-gray-500 dark:text-gray-400 leading-relaxed">

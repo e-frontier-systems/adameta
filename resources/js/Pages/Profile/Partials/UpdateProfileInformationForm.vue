@@ -83,7 +83,7 @@ const clearPhotoFileInput = () => {
 
         <template #description>
 <!--            Update your account's profile information and email address.-->
-          ティッカー名とメールアドレスを変更できます
+          お名前とメールアドレスを変更できます
         </template>
 
         <template #form>
@@ -131,7 +131,7 @@ const clearPhotoFileInput = () => {
 
             <!-- Name -->
             <div class="col-span-6 sm:col-span-4">
-                <InputLabel for="name" value="ティッカー名" />
+                <InputLabel for="name" value="お名前" />
                 <TextInput
                     id="name"
                     v-model="form.name"

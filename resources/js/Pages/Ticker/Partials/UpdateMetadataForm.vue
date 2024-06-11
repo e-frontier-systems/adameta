@@ -82,7 +82,8 @@ const clearMetadataFileInput = () => {
       </div>
 
       <div class="mt-4">
-        <div v-show="jsonPreview" class="block p-4 bg-white rounded">
+        <div v-show="jsonPreview" class="block p-4 bg-white border border-gray-300 rounded">
+          <div class="mb-4 text-gray-600 text-xs">プレビュー</div>
           <pre class="block text-sm">{{ jsonPreview }}</pre>
         </div>
         <InputError :message="form.errors.json" class="mt-2" />
