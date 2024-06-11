@@ -18,7 +18,7 @@ class TickerController extends Controller
 
         $tickers = Ticker::where('user_id', $user->id)->get();
 
-        return Inertia::render('Ticker', [
+        return Inertia::render('Metadata', [
             'tickers' => $tickers,
         ]);
     }

@@ -1,15 +1,16 @@
 <?php
 
 use App\Http\Controllers\MetadataController;
+use App\Http\Controllers\PoolController;
 use App\Http\Controllers\TickerController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-\Illuminate\Auth\Middleware\Authenticate::redirectUsing(function(\Illuminate\Http\Request $request) {
-    $request->session()->flash('status', 'セッションがタイムアウトしました。');
-    return redirect('login');
-});
+//\Illuminate\Auth\Middleware\Authenticate::redirectUsing(function(\Illuminate\Http\Request $request) {
+//    $request->session()->flash('status', 'セッションがタイムアウトしました。');
+//    return redirect('login');
+//});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -44,8 +45,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/metadata/new', [MetadataController::class, 'update'])->name('ticker-metadata.update');
     Route::get('/metadata/show', [MetadataController::class, 'show'])->name('metadata.show');
 
+});
+
+Route::middleware('auth')->group(function() {
+
+    Route::get('/pool', [PoolController::class, 'index'])->name('pool');
 
 });
+
+Route::get('/md/{ticker}/poolMetaData.json', [MetadataController::class, 'showPublic'])->name('public_metadata');
 
 /*
 Route::get('/ticker', function() {

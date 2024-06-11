@@ -33,7 +33,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="ティッカー名" />
+                <InputLabel for="name" value="お名前" />
                 <TextInput
                     id="name"
                     v-model="form.name"

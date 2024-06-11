@@ -19,7 +19,9 @@
         "vue": "^3.3.13"
     },
     "dependencies": {
+        "@highlightjs/vue-plugin": "^2.1.0",
         "@material-tailwind/html": "^2.2.2",
+        "highlight.js": "^11.9.0",
         "use-state-vue": "^1.0.0"
     }
 }
