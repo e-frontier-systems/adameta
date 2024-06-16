@@ -153,7 +153,7 @@ const logout = () => {
                                         </DropdownLink>
 
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
-                                            API Tokens
+                                            APIトークン
                                         </DropdownLink>
 
                                         <div class="border-t border-gray-200 dark:border-gray-600" />

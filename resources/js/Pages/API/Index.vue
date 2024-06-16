@@ -10,10 +10,10 @@ defineProps({
 </script>
 
 <template>
-    <AppLayout title="API Tokens">
+    <AppLayout title="APIトークン">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                API Tokens
+                APIトークン
             </h2>
         </template>
 
