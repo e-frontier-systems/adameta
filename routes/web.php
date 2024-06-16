@@ -41,6 +41,10 @@ Route::middleware([
 Route::middleware('auth')->group(function () {
 
     Route::get('/ticker', [TickerController::class, 'list'])->name('ticker');
+    Route::delete('/ticker/{id}', [TickerController::class, 'delete'])->name('api.ticker.destroy');
+    Route::post('/ticker/save', [TickerController::class, 'save'])->name('api.ticker.store');
+
+
     Route::get('/metadata/get', [MetadataController::class, 'getByTickerId'])->name('get-by-ticker-id');
     Route::post('/metadata/new', [MetadataController::class, 'update'])->name('ticker-metadata.update');
     Route::get('/metadata/show', [MetadataController::class, 'show'])->name('metadata.show');

@@ -29,7 +29,7 @@ const submit = () => {
         </template>
 
         <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-          パスワードを忘れましたか? 問題ありません。メールアドレスをお知らせいただければ、新しいパスワードを選択できるパスワードリセットリンクをメールでお送りします。
+          パスワードを忘れましたか? 問題ありません。メールアドレスをお知らせいただければ、新しいパスワードを設定できるパスワードリセットリンクをメールでお送りします。
         </div>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600 dark:text-green-400">

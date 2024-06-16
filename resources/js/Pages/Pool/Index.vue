@@ -1,10 +1,11 @@
-<script setup>
+<script>
 import AppLayout from "@/Layouts/AppLayout.vue";
-import PoolManager from "@/Pages/Pool/Partials/PoolManager.vue";
+import PoolManager from "@/Pages/Pool/Partials/PoolManager.vue"
 
-defineProps ({
-    pools: Array,
-})
+export default {
+    name: "Index.vue",
+    components: {PoolManager, AppLayout}
+}
 </script>
 
 <template>
@@ -17,8 +18,9 @@ defineProps ({
 
         <div>
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <PoolManager :pools="pools" />
+                <PoolManager />
             </div>
         </div>
+
     </AppLayout>
 </template>

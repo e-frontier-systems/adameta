@@ -77,17 +77,17 @@ const deleteApiToken = () => {
         <!-- Generate API Token -->
         <FormSection @submitted="createApiToken">
             <template #title>
-                Create API Token
+                APIトークンを生成する
             </template>
 
             <template #description>
-                API tokens allow third-party services to authenticate with our application on your behalf.
+                API トークンを使用すると、サードパーティのサービスがあなたに代わってアプリケーションを認証できるようになります。
             </template>
 
             <template #form>
                 <!-- Token Name -->
                 <div class="col-span-6 sm:col-span-4">
-                    <InputLabel for="name" value="Name" />
+                    <InputLabel for="name" value="名前" />
                     <TextInput
                         id="name"
                         v-model="createApiTokenForm.name"
@@ -100,7 +100,7 @@ const deleteApiToken = () => {
 
                 <!-- Token Permissions -->
                 <div v-if="availablePermissions.length > 0" class="col-span-6">
-                    <InputLabel for="permissions" value="Permissions" />
+                    <InputLabel for="permissions" value="許可する権限" />
 
                     <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div v-for="permission in availablePermissions" :key="permission">
@@ -115,11 +115,11 @@ const deleteApiToken = () => {
 
             <template #actions>
                 <ActionMessage :on="createApiTokenForm.recentlySuccessful" class="me-3">
-                    Created.
+                    生成しました
                 </ActionMessage>
 
                 <PrimaryButton :class="{ 'opacity-25': createApiTokenForm.processing }" :disabled="createApiTokenForm.processing">
-                    Create
+                    生成する
                 </PrimaryButton>
             </template>
         </FormSection>
@@ -131,11 +131,11 @@ const deleteApiToken = () => {
             <div class="mt-10 sm:mt-0">
                 <ActionSection>
                     <template #title>
-                        Manage API Tokens
+                        APIトークンの管理
                     </template>
 
                     <template #description>
-                        You may delete any of your existing tokens if they are no longer needed.
+                        既存のトークンが不要になった場合は削除できます。
                     </template>
 
                     <!-- API Token List -->
@@ -148,7 +148,7 @@ const deleteApiToken = () => {
 
                                 <div class="flex items-center ms-2">
                                     <div v-if="token.last_used_ago" class="text-sm text-gray-400">
-                                        Last used {{ token.last_used_ago }}
+                                        最後に使用したのは {{ token.last_used_ago }}
                                     </div>
 
                                     <button
@@ -156,11 +156,11 @@ const deleteApiToken = () => {
                                         class="cursor-pointer ms-6 text-sm text-gray-400 underline"
                                         @click="manageApiTokenPermissions(token)"
                                     >
-                                        Permissions
+                                        権限の管理
                                     </button>
 
                                     <button class="cursor-pointer ms-6 text-sm text-red-500" @click="confirmApiTokenDeletion(token)">
-                                        Delete
+                                        削除
                                     </button>
                                 </div>
                             </div>
@@ -173,12 +173,12 @@ const deleteApiToken = () => {
         <!-- Token Value Modal -->
         <DialogModal :show="displayingToken" @close="displayingToken = false">
             <template #title>
-                API Token
+                APIトークン
             </template>
 
             <template #content>
                 <div>
-                    Please copy your new API token. For your security, it won't be shown again.
+                    この API トークンをコピーしてください。セキュリティのため、再度表示されることはありません。
                 </div>
 
                 <div v-if="$page.props.jetstream.flash.token" class="mt-4 bg-gray-100 dark:bg-gray-900 px-4 py-2 rounded font-mono text-sm text-gray-500 break-all">
@@ -188,7 +188,7 @@ const deleteApiToken = () => {
 
             <template #footer>
                 <SecondaryButton @click="displayingToken = false">
-                    Close
+                    閉じる
                 </SecondaryButton>
             </template>
         </DialogModal>
@@ -196,7 +196,7 @@ const deleteApiToken = () => {
         <!-- API Token Permissions Modal -->
         <DialogModal :show="managingPermissionsFor != null" @close="managingPermissionsFor = null">
             <template #title>
-                API Token Permissions
+                APIトークンの権限
             </template>
 
             <template #content>
@@ -212,7 +212,7 @@ const deleteApiToken = () => {
 
             <template #footer>
                 <SecondaryButton @click="managingPermissionsFor = null">
-                    Cancel
+                    キャンセル
                 </SecondaryButton>
 
                 <PrimaryButton
@@ -221,7 +221,7 @@ const deleteApiToken = () => {
                     :disabled="updateApiTokenForm.processing"
                     @click="updateApiToken"
                 >
-                    Save
+                    保存
                 </PrimaryButton>
             </template>
         </DialogModal>
@@ -229,16 +229,16 @@ const deleteApiToken = () => {
         <!-- Delete Token Confirmation Modal -->
         <ConfirmationModal :show="apiTokenBeingDeleted != null" @close="apiTokenBeingDeleted = null">
             <template #title>
-                Delete API Token
+                APIトークンを削除します
             </template>
 
             <template #content>
-                Are you sure you would like to delete this API token?
+                この API トークンを削除してもよろしいですか?
             </template>
 
             <template #footer>
                 <SecondaryButton @click="apiTokenBeingDeleted = null">
-                    Cancel
+                    キャンセル
                 </SecondaryButton>
 
                 <DangerButton
@@ -247,7 +247,7 @@ const deleteApiToken = () => {
                     :disabled="deleteApiTokenForm.processing"
                     @click="deleteApiToken"
                 >
-                    Delete
+                    削除
                 </DangerButton>
             </template>
         </ConfirmationModal>
