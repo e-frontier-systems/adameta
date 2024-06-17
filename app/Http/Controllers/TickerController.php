@@ -34,11 +34,21 @@ class TickerController extends Controller
         return new RedirectResponse(route('pool'));
     }
 
-    public function save(Request $request): RedirectResponse
+    public function save(Request $request): JsonResponse|RedirectResponse
     {
+        $name = mb_strtoupper(trim($request->post('name')));
+
+        $count = Ticker::query()
+            ->where('name', '=', $name)
+            ->count();
+
+        if ($count > 0) {
+            return new JsonResponse('既に登録されています', 403);
+        }
+
         $Ticker = new Ticker();
         $Ticker->user_id = $request->user()->id;
-        $Ticker->name = $request->post('name');
+        $Ticker->name = $name;
         $Ticker->description = $request->post('description', '');
         $Ticker->save();
 
