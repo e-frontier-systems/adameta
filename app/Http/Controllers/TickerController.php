@@ -8,13 +8,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Http;
 use Illuminate\View\View;
 use Inertia\Inertia;
 use Inertia\Response;
-use Laravel\Fortify\Fortify;
-use Laravel\Fortify\Http\Responses\EmailVerificationNotificationSentResponse;
-use const Grpc\STATUS_ALREADY_EXISTS;
 
 class TickerController extends Controller
 {
